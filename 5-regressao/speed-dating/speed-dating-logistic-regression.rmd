@@ -1,0 +1,29 @@
+---
+title: "Regressão Logística"
+output: html_notebook
+---
+
+```{r include=FALSE, warning=FALSE}
+library(GGally)
+library(pscl)
+library(broom)
+library(tidyverse)
+library(modelr) # devtools::install_github("hadley/modelr")
+
+theme_set(theme_bw())
+```
+
+
+
+```{r}
+speed_dating <- read_csv('speed-dating2.csv')
+
+speed_dating <- speed_dating %>% 
+  select(race, samerace, age, dec) %>%
+ggpairs(speed_dating)
+
+speed_dating %>% 
+  ggplot(aes(x = dec, fill = race)) + 
+  geom_bar(position = "dodge")
+```
+
